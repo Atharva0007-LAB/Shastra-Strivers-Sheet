@@ -1,26 +1,20 @@
 import java.util.*;
 
 public class Solution {
-    /**
-     * Checks if K cows can be placed with at least 'minDist' distance apart.
-     */
-    private boolean canWePlace(int[] stalls, int minDist, int k) {
-        int countCows = 1;
+    private boolean canPlace(int[] stalls, int dist, int k) {
+        int count = 1;
         int lastPos = stalls[0];
 
         for (int i = 1; i < stalls.length; i++) {
-            if (stalls[i] - lastPos >= minDist) {
-                countCows++;
+            if (stalls[i] - lastPos >= dist) {
+                count++;
                 lastPos = stalls[i];
             }
-            if (countCows >= k) return true;
+            if (count >= k) return true;
         }
         return false;
     }
 
-    /**
-     * Finds the maximum possible minimum distance between K aggressive cows.
-     */
     public int aggressiveCows(int[] stalls, int k) {
         Arrays.sort(stalls);
         int n = stalls.length;
@@ -30,11 +24,11 @@ public class Solution {
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (canWePlace(stalls, mid, k)) {
+            if (canPlace(stalls, mid, k)) {
                 ans = mid;
                 low = mid + 1; // Try larger distance
             } else {
-                high = mid - 1; // Distance too large
+                high = mid - 1;
             }
         }
         return ans;
@@ -49,8 +43,7 @@ public class Solution {
         for (int i = 0; i < n; i++) stalls[i] = sc.nextInt();
 
         Solution sol = new Solution();
-        int res = sol.aggressiveCows(stalls, k);
-        System.out.println(res);
+        System.out.println(sol.aggressiveCows(stalls, k));
         sc.close();
     }
 }

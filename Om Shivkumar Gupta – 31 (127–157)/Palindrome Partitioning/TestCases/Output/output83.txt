@@ -1,8 +1,0 @@
-[c, c, a, a, a]
-[c, c, a, aa]
-[c, c, aa, a]
-[c, c, aaa]
-[cc, a, a, a]
-[cc, a, aa]
-[cc, aa, a]
-[cc, aaa]

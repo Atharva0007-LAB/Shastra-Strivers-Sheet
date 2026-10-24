@@ -1,8 +1,0 @@
-[act, act, act, act, atc, atc, atc, atc, cat, cat, cat, cta, cta, cta, cta, tac, tac, tac, tac, tca, tca]
-[alpy, aylp, aylp, aypl, layp, layp, lpay, lpay, lpay, lpya, lyap, paly, paly, play, play, plya, pyal, pyal, pyla, ylap, ylap, ylpa, ypal, ypal, ypla, ypla]
-[aorhgltmi, ghmrltioa, glmaihtro, hlirgmota, hrligmaot, hrlmaotgi, iaohmlgtr, itomrlgah, loamtghri, lotmhagri, ltiaomgrh, mailotghr, othrgilam, othrmglai, rihgtalom, tgilramho, tgoarimhl]
-[arts, asrt, atrs, rast, rats, rsta, rsta, rsta, rsta, sart, sart, srta, star, tars, tras, tras, tsar]
-[cdeo, cedo, ceod, ceod, coed, dceo, dcoe, dcoe, deco, deco, doce, ecod, ecod, eodc, ocde, odce, odce, odec, odec]
-[dstyu, duyts, dytsu, sdtuy, stdyu, suydt, sydtu, tdyus, tudsy, tudsy, udsty, udsty, uysdt, ydust, ytuds]
-[eitlns, elstni, eltsni, esntli, etnisl, iestln, ietlsn, ietnsl, iltsne, istnle, itseln, lenist, linets, nitsle, ntslie, seitln, snielt, teslni, tsilne, tsnlie]
-[ghitn, ghnit, ghnti, gnhti, gtihn, gtinh, hgint, hingt, hintg, hntig, htgin, hting, ignht, ihtng, nhitg, night, nigth, nithg, tingh]

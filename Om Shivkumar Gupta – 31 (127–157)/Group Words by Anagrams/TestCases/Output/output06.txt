@@ -1,8 +1,0 @@
-[act, act, atc, tac]
-[aply, lpay, pyla, pyla]
-[ariohltmg, atmrhigol, ghmtlroia, halgmrtio, lotraigmh, matrogilh, olamtrihg, otgmhrail, riaogthml]
-[asrt, rast, rast, rsta, sart, satr, tasr, tras, trsa, tsar]
-[cdoe, cdoe, cedo, coed, doce, ecod, edco, ocde, odce, odec]
-[dusyt, duyst, stduy, udyts, ysdut]
-[estnil, ietsnl, isltne, itsenl, lintes, lsneti, ltnesi, seiltn, sltine, stieln, stilne]
-[ghnti, gtinh, igtnh, ihtng, ithng]

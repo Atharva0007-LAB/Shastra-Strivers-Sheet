@@ -1,3 +1,0 @@
-[r, a, d, a, r]
-[r, ada, r]
-[radar]

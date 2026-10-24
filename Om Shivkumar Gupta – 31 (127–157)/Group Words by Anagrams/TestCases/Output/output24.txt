@@ -1,8 +1,0 @@
-[act, act, act, atc, atc, atc, cat, cta, cta, cta, tac, tac, tac, tac, tac, tca, tca, tca, tca, tca, tca, tca, tca, tca]
-[ahlogmrti, almtiorgh, amlgirhot, amortghli, galrmhtio, gatomlhri, hgmlorita, hilormtag, hlroaitgm, hroltagmi, irlhotagm, lgamorhti, lirmohagt, ltaroihmg, mhrotliag, mtairohgl, rmitoalhg, tgraliomh, tiorghmla, tmgohlira]
-[alyp, alyp, alyp, aply, aply, aply, apyl, apyl, aylp, aylp, aylp, aypl, lapy, layp, lpya, lpya, lypa, play, plya, pyal, pyal, yapl, ylap, ypal, ypla]
-[arst, arts, asrt, astr, atrs, atrs, atsr, atsr, rats, rats, rsat, rsta, rtas, srat, srta, star, star, stra, stra, tars, tasr, tras, trsa, tsar]
-[cdeo, cdoe, ceod, ceod, coed, dceo, dceo, dceo, deco, deoc, doce, doce, doec, doec, ecdo, ecod, ecod, edco, edoc, eocd, eocd, eodc, oced, oced, oecd]
-[dsuty, dsuty, dsuyt, dtusy, dtusy, dtuys, dtyus, duyts, dytsu, dytus, dyuts, study, sytdu, syudt, tdyus, tsuyd, tusyd, tydus, tysdu, ustdy, ystdu, ytdsu, ytuds, ytusd]
-[elistn, enitls, eslnit, esltin, etnsli, etsinl, ieltsn, ilntes, inetsl, intels, intesl, isentl, isnetl, isnlet, istlne, itseln, letins, lnites, lntsei, lsenit, lsneti, netils, nlseti, selint, silent, sitlen, sleint, slntei, snilet, snilte, tesnli, tiesln, tilsne, tnelis, tnlesi, tsleni]
-[ghtni, gihnt, gihtn, githn, gtinh, hingt, hintg, hnigt, hnigt, hnitg, hntgi, ightn, nghit, ngiht, ngith, nhitg, nhitg, nigth, tghni, thgin, thing, tignh, tihgn, tnghi]

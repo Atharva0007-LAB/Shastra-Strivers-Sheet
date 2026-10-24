@@ -1,13 +1,7 @@
-# 129. Find Peak Element - Editorial
+# 151. Find Peak Element - Editorial
 
 ## Problem Statement
-A peak element is an element that is strictly greater than its neighbors.
-
-Given a 0-indexed integer array `nums`, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
-
-You may imagine that `nums[-1] = nums[n] = -infinity`. In other words, an element is always considered to be strictly greater than a neighbor that is outside the array.
-
-You must write an algorithm that runs in `O(log n)` time.
+Find any peak element (strictly greater than its neighbors) in an array in O(log N) time.
 
 ---
 
@@ -24,33 +18,21 @@ You must write an algorithm that runs in `O(log n)` time.
 2
 ```
 
-### Explanation
-* 3 is a peak element because it is strictly greater than its neighbors 2 and 1.
-* Its index is 2.
-
 ---
 
-## Intuition
-A linear scan would find a peak in O(N), but the problem requires O(log N). 
-
-Since `nums[-1] = nums[N] = -`infinity, if we look at the midpoint `mid` and compare it with `mid + 1`:
-- If `nums[mid] < nums[mid + 1]`, we are on an ascending slope. Even if numbers keep ascending until the end, `nums[N-1]` will be greater than `nums[N] = -`infinity, so there MUST be at least one peak in the right half.
-- If `nums[mid] > nums[mid + 1]`, we are on a descending slope, meaning a peak must exist at `mid` or to its left.
-Thus, binary search is applicable!
-
-## Approach
-1. Initialize pointers `low = 0` and `high = N - 1`.
-2. While `low < high`:
-   - Compute `mid = low + (high - low) / 2`.
-   - If `nums[mid] < nums[mid + 1]`, set `low = mid + 1`.
-   - Else set `high = mid`.
-3. When `low == high`, return `low`.
+## Intuition & Approach
+Imagine the array as a mountain landscape:
+- Check boundary indices `0` and `n - 1` first.
+- For indices in range `[1, n - 2]`:
+  - If `nums[mid] > nums[mid - 1]` and `nums[mid] > nums[mid + 1]`, `mid` is a peak.
+  - If `nums[mid] > nums[mid - 1]`, we are on an ascending slope, so at least one peak must exist to the right (`low = mid + 1`).
+  - Else, we are on a descending slope, so at least one peak must exist to the left (`high = mid - 1`).
 
 ---
 
 ## Complexity Analysis
-* **Time Complexity:** O(log N) as the search space halves on every comparison.
-* **Space Complexity:** O(1) auxiliary space as only pointer variables are stored.
+* **Time Complexity:** O(log N) - binary search.
+* **Space Complexity:** O(1) auxiliary space.
 
 ---
 
@@ -58,31 +40,23 @@ Thus, binary search is applicable!
 
 ### Java Solution
 ```java
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
-    /**
-     * Finds a peak element in O(log N) using Binary Search.
-     * 
-     * @param nums Integer array with no two adjacent equal elements.
-     * @return Index of any peak element.
-     */
     public int findPeakElement(int[] nums) {
-        int low = 0;
-        int high = nums.length - 1;
+        int n = nums.length;
+        if (n == 1) return 0;
+        if (nums[0] > nums[1]) return 0;
+        if (nums[n - 1] > nums[n - 2]) return n - 1;
 
-        while (low < high) {
+        int low = 1, high = n - 2;
+        while (low <= high) {
             int mid = low + (high - low) / 2;
-            // If mid element is smaller than its right neighbor,
-            // an upward slope exists to the right, guaranteeing a peak on the right.
-            if (nums[mid] < nums[mid + 1]) {
-                low = mid + 1;
-            } else {
-                // Otherwise, a peak exists on the left side (including mid itself).
-                high = mid;
-            }
+            if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) return mid;
+            else if (nums[mid] > nums[mid - 1]) low = mid + 1;
+            else high = mid - 1;
         }
-        return low;
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -90,13 +64,10 @@ public class Solution {
         if (!sc.hasNextInt()) return;
         int n = sc.nextInt();
         int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = sc.nextInt();
-        }
+        for (int i = 0; i < n; i++) nums[i] = sc.nextInt();
 
         Solution sol = new Solution();
-        int peakIndex = sol.findPeakElement(nums);
-        System.out.println(peakIndex);
+        System.out.println(sol.findPeakElement(nums));
         sc.close();
     }
 }

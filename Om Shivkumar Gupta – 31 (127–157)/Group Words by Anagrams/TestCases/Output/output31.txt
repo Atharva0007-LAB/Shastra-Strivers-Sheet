@@ -1,8 +1,0 @@
-[act, act, act, act, act, act, act, act, atc, atc, atc, atc, atc, cat, cat, cat, cat, cta, cta, cta, tac, tac, tac, tac, tca, tca, tca, tca, tca, tca, tca]
-[alpy, alyp, alyp, aply, aply, aylp, aylp, aylp, aypl, lapy, lapy, layp, layp, lpay, lpya, lpya, lpya, lyap, lyap, lypa, paly, paly, paly, paly, play, plya, plya, plya, pyla, yalp, yalp, yapl, ylap, ylap, ylap, ylpa, ypal]
-[amholrigt, gaoihmltr, glhariotm, hgltmiora, hrilgmota, htlomiarg, ihgmtlora, irlohatmg, moglharti, molagihtr, oamrhlgit, ohtrmalig, orilthgma, ortlaigmh, ramoilgth, rhgmaltoi, ritahmolg, rlgimatoh, roitlahgm, romiahltg, trhmiloag, trlohmiag]
-[arst, arst, astr, rast, rast, rats, rsat, rsat, rsat, rsat, rsat, rtas, sart, sart, satr, srat, srat, srat, star, stra, tars, tars, tasr, tasr, tras, trsa, trsa, trsa, tsar, tsar, tsar, tsar, tsra, tsra, tsra]
-[cdeo, cdeo, cdoe, cedo, ceod, ceod, code, dceo, dceo, dceo, dceo, dcoe, deco, deoc, doec, doec, doec, ecdo, ecdo, ecdo, ecdo, ecod, edco, edoc, edoc, edoc, eocd, eocd, eodc, ocde, ocde, ocde, oced, odce, odce, odce, oecd, oecd, oedc]
-[dsuyt, dsyut, dtysu, dutsy, dutys, dytus, dyuts, sduyt, sdytu, sdytu, stydu, styud, tdsyu, tdusy, tdusy, tdyus, tsydu, tsyud, tudys, tydus, tysdu, tyuds, udyst, udyts, ustyd, utsyd, utsyd, uystd, ysdtu, ytdus, ytuds, yudts, yusdt]
-[eistln, eltnsi, eltsin, ensitl, enstli, etslni, ietnsl, ilnest, inslte, isetln, istnel, itnles, lisent, lnstei, ltseni, nltsei, nsitel, nsitle, ntlsei, sentil, sneilt, snleti, snliet, teisln, tenisl, tielns, tlsnie, tnlsei]
-[ghnti, ghtin, ghtni, gihtn, ginht, ginth, higtn, hngit, hnitg, hntgi, htgni, htngi, htngi, ighnt, ihngt, ihtgn, inhgt, inthg, inthg, inthg, itnhg, itnhg, itnhg, ngthi, nihgt, nihtg, tghin, tghin, tgnih, thnig, tnhig, tnihg, tnihg]

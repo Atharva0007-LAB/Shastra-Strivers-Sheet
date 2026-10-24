@@ -1,14 +1,7 @@
-# 154. Book Allocation Problem - Editorial
+# 150. Book Allocation Problem - Editorial
 
 ## Problem Statement
-Given an array `arr` of `N` integers where `arr[i]` represents the number of pages in the `i-th` book, and an integer `M` representing the number of students.
-
-Allocate books such that:
-1. Each student gets at least one book.
-2. Each student is assigned a contiguous segment of books.
-3. The maximum number of pages allocated to any student is minimized.
-
-If it is impossible to allocate books (e.g. `M > N`), return `-1`.
+Allocate `n` books among `m` students contiguously such that the maximum pages assigned to any student is minimized. Return `-1` if `m > n`.
 
 ---
 
@@ -25,37 +18,21 @@ If it is impossible to allocate books (e.g. `M > N`), return `-1`.
 113
 ```
 
-### Explanation
-* Possible contiguous allocations for 2 students:
-  - [12] and [34, 67, 90] -> max pages = 191
-  - [12, 34] and [67, 90] -> max pages = 157
-  - [12, 34, 67] and [90] -> max pages = 113
-* The minimum of maximum pages is 113.
-
 ---
 
-## Intuition
-This is a classic "Minimize the Maximum" problem.
-Notice the monotonic property:
-If a page barrier `P` allows allocating the books to $le M$ students, any barrier $> P$ will also be feasible.
-If barrier `P` requires $> M$ students, any barrier $< P$ will require even more students.
-Thus, we can apply Binary Search on the Answer between `max(arr)` and `sum(arr)`.
-
-## Approach
-1. If `M > N`, allocation is impossible; return `-1`.
-2. Compute:
-   - `low = max(arr)` (a student must at least hold the largest book)
-   - `high = sum(arr)` (one student gets all books)
-3. For midpoint `mid`:
-   - Greedily count the number of students required using `countStudents(arr, mid)`.
-   - If `students <= M`: record `ans = mid` and search left half (`high = mid - 1`).
-   - Else: search right half (`low = mid + 1`).
-4. Return `ans`.
+## Intuition & Approach
+1. If `m > n`, it is impossible to give each student at least one book. Return `-1`.
+2. Binary search on answer range `[max(arr), sum(arr)]`:
+   - At capacity `mid`, greedily allocate books to current student.
+   - If adding the next book exceeds `mid`, assign to a new student.
+   - If `studentsNeeded <= m`, this limit is feasible: record `ans = mid` and search left (`high = mid - 1`).
+   - Otherwise, search right (`low = mid + 1`).
+3. Return `ans`.
 
 ---
 
 ## Complexity Analysis
-* **Time Complexity:** O(N * log(sum(arr) - max(arr))) as each binary search step takes O(N) linear scan.
+* **Time Complexity:** O(N * log(sum(arr))) - linear scan per binary search iteration.
 * **Space Complexity:** O(1) auxiliary space.
 
 ---
@@ -64,48 +41,34 @@ Thus, we can apply Binary Search on the Answer between `max(arr)` and `sum(arr)`
 
 ### Java Solution
 ```java
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
-    private int countStudents(long[] arr, long maxPages) {
+    private int countStudents(int[] arr, long maxPages) {
         int students = 1;
-        long pagesStudent = 0;
-
-        for (long pages : arr) {
-            if (pagesStudent + pages <= maxPages) {
-                pagesStudent += pages;
-            } else {
-                students++;
-                pagesStudent = pages;
-            }
+        long pages = 0;
+        for (int p : arr) {
+            if (pages + p > maxPages) { students++; pages = p; }
+            else pages += p;
         }
         return students;
     }
 
-    public long findPages(long[] arr, int n, int m) {
+    public long findPages(int[] arr, int n, int m) {
         if (m > n) return -1;
-
-        long low = 0;
-        long high = 0;
-
-        for (long pages : arr) {
-            low = Math.max(low, pages);
-            high += pages;
-        }
+        long low = 0, high = 0;
+        for (int p : arr) { low = Math.max(low, p); high += p; }
 
         long ans = high;
         while (low <= high) {
             long mid = low + (high - low) / 2;
-            int students = countStudents(arr, mid);
-
-            if (students <= m) {
+            if (countStudents(arr, mid) <= m) {
                 ans = mid;
-                high = mid - 1; // Try to minimize further
+                high = mid - 1;
             } else {
-                low = mid + 1;  // Not enough students, page limit too small
+                low = mid + 1;
             }
         }
-
         return ans;
     }
 
@@ -114,12 +77,11 @@ public class Solution {
         if (!sc.hasNextInt()) return;
         int n = sc.nextInt();
         int m = sc.nextInt();
-        long[] arr = new long[n];
-        for (int i = 0; i < n; i++) arr[i] = sc.nextLong();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
 
         Solution sol = new Solution();
-        long ans = sol.findPages(arr, n, m);
-        System.out.println(ans);
+        System.out.println(sol.findPages(arr, n, m));
         sc.close();
     }
 }

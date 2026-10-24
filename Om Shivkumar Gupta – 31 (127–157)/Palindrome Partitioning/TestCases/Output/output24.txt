@@ -1,3 +1,0 @@
-[b, a, a, c, a]
-[b, a, aca]
-[b, aa, c, a]

@@ -1,5 +1,0 @@
-[c, c, a, c, a, b]
-[c, c, aca, b]
-[c, cac, a, b]
-[cc, a, c, a, b]
-[cc, aca, b]

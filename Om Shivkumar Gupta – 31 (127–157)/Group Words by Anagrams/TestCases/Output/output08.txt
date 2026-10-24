@@ -1,8 +1,0 @@
-[act, act, cat, cta, cta, cta, tac, tac, tac, tca]
-[alpy, alyp, aply, aply, aylp, layp, lyap, lypa, paly, payl, play, yalp, ypal, ypal]
-[amlhirtog, gatrihlom, ghimlaotr, giahrolmt, lagrmtiho, lirmtgaoh, lorithmag, miratgohl, mitalohrg, omtlgihar]
-[arts, rtas, tasr]
-[cdoe, ceod, dceo, dcoe, ecod, oecd]
-[dtuys, dusty, dysut, dyust, sudty, sudyt, tsyud, tusyd, usdyt, ydtsu, ytsdu]
-[ensilt, lnsite, sieltn, sntiel, tnlsei, tnlsei]
-[gnthi, higtn, hitng, hngit, hnigt, htngi, ihntg, ihtgn, inhtg, itnhg, ngiht, nthgi, tgnih, tngih]

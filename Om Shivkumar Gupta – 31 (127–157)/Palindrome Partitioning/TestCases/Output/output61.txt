@@ -1,7 +1,0 @@
-[b, a, b, b, a, a]
-[b, a, b, b, aa]
-[b, a, bb, a, a]
-[b, a, bb, aa]
-[b, abba, a]
-[bab, b, a, a]
-[bab, b, aa]

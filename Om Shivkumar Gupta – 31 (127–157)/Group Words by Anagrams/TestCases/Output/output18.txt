@@ -1,8 +1,0 @@
-[act, act, act, atc, atc, atc, cat, cat, cat, cat, cat, cta, cta, cta, cta, cta, cta, cta, tac, tac, tca, tca, tca]
-[alyp, alyp, aply, aply, aylp, aypl, aypl, lapy, layp, lpya, lyap, lypa, lypa, payl, play, play, play, yalp, ylap, ylpa, ylpa, ypla, ypla]
-[arst, arts, arts, arts, asrt, asrt, astr, atrs, rtas, rtsa, sart, satr, srta, srta, tars, tars, tras, trsa, tsra, tsra]
-[cdeo, cdoe, cedo, dceo, dcoe, deco, deoc, ecdo, ecdo, ecod, edoc, eodc, oced, oced, oecd]
-[dstyu, sduty, stydu, sudty, suydt, tsduy, tsdyu, tudsy, tysud, udsyt, udtsy, usydt, uysdt, ydstu, ydsut, ydtsu, ysutd, ysutd, ytdus, ytsud, ytusd]
-[eitnsl, elitns, enstil, entsil, etlnis, etlsin, inselt, istnle, itsnel, lnesti, lntsei, niltse, nsielt, ntesli, sielnt, slntei, telsin, tniels, tsinel]
-[ghotlriam, ghriloamt, gmathirlo, hgmrlaiot, hilgomtra, hloirtgma, hritlmago, iaotrlhgm, ioaltrmhg, lihogamtr, lioahmgrt, lomtiragh, mgatliohr, ogtarmlhi, ohrlmagti, olrhiagtm, orhgaimtl, raomihglt, rlagtomhi, rmhlaogti, rogahlmti, rolahgtmi, rtlhaimgo, tghaloirm]
-[hnitg, hntig, inght, itngh, ngiht, ngith, nhigt, nthgi, nthgi]

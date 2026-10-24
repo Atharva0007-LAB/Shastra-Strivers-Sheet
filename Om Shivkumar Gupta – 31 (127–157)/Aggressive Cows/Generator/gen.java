@@ -9,7 +9,7 @@ public class gen {
         File outDir = new File(baseDir, "Output");
         inDir.mkdirs(); outDir.mkdirs();
 
-        Random rand = new Random(139);
+        Random rand = new Random(149);
 
         for (int tc = 0; tc < 100; tc++) {
             String fName = String.format("%02d", tc);
@@ -23,34 +23,34 @@ public class gen {
                 n = 6; k = 4;
                 stalls = new int[]{0, 3, 4, 7, 10, 9};
             } else if (tc == 1) {
-                n = 2; k = 2;
-                stalls = new int[]{1, 5};
+                n = 5; k = 3;
+                stalls = new int[]{1, 2, 8, 4, 9};
             } else if (tc == 2) {
-                n = 5; k = 2;
-                stalls = new int[]{1, 2, 4, 8, 9};
+                n = 2; k = 2;
+                stalls = new int[]{1, 100};
             } else if (tc == 3) {
                 n = 5; k = 5;
                 stalls = new int[]{2, 4, 6, 8, 10};
             } else if (tc == 4) {
-                n = 7; k = 3;
-                stalls = new int[]{10, 100, 1000, 10000, 100000, 1000000, 10000000};
+                n = 4; k = 2;
+                stalls = new int[]{0, 10, 20, 30};
             } else {
-                if (tc < 25) n = 10 + rand.nextInt(30);
+                if (tc < 25) n = 10 + rand.nextInt(50);
                 else if (tc < 65) n = 1000 + rand.nextInt(2000);
-                else n = 15000 + rand.nextInt(20000);
+                else n = 15000 + rand.nextInt(25000);
 
-                k = 2 + rand.nextInt(Math.max(2, n / 3));
                 stalls = new int[n];
                 int cur = 0;
                 for (int i = 0; i < n; i++) {
-                    cur += 1 + rand.nextInt(200);
+                    cur += 1 + rand.nextInt(100);
                     stalls[i] = cur;
                 }
-                // shuffle stalls
+                // shuffle
                 for (int i = n - 1; i > 0; i--) {
                     int j = rand.nextInt(i + 1);
                     int tmp = stalls[i]; stalls[i] = stalls[j]; stalls[j] = tmp;
                 }
+                k = 2 + rand.nextInt(Math.max(2, n / 3));
             }
 
             PrintWriter inPw = new PrintWriter(new BufferedWriter(new FileWriter(inFile)));
@@ -59,31 +59,23 @@ public class gen {
             inPw.println();
             inPw.close();
 
-            // Optimal solve
             int[] sorted = stalls.clone();
             Arrays.sort(sorted);
             int low = 1, high = sorted[n - 1] - sorted[0], ans = 1;
             while (low <= high) {
                 int mid = low + (high - low) / 2;
-                int cows = 1, last = sorted[0];
+                int count = 1, last = sorted[0];
                 for (int i = 1; i < n; i++) {
-                    if (sorted[i] - last >= mid) {
-                        cows++;
-                        last = sorted[i];
-                    }
+                    if (sorted[i] - last >= mid) { count++; last = sorted[i]; }
                 }
-                if (cows >= k) {
-                    ans = mid;
-                    low = mid + 1;
-                } else {
-                    high = mid - 1;
-                }
+                if (count >= k) { ans = mid; low = mid + 1; }
+                else high = mid - 1;
             }
 
             PrintWriter outPw = new PrintWriter(new BufferedWriter(new FileWriter(outFile)));
             outPw.println(ans);
             outPw.close();
         }
-        System.out.println("Aggressive Cows: 100 test cases generated.");
+        System.out.println("Problem 149 generated 100 test cases.");
     }
 }

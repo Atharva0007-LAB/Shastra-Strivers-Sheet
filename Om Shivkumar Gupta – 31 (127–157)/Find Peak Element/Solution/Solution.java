@@ -1,28 +1,30 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Solution {
     /**
-     * Finds a peak element in O(log N) using Binary Search.
-     * 
-     * @param nums Integer array with no two adjacent equal elements.
-     * @return Index of any peak element.
+     * Finds any peak element in O(log N) time using binary search.
      */
     public int findPeakElement(int[] nums) {
-        int low = 0;
-        int high = nums.length - 1;
+        int n = nums.length;
+        if (n == 1) return 0;
+        if (nums[0] > nums[1]) return 0;
+        if (nums[n - 1] > nums[n - 2]) return n - 1;
 
-        while (low < high) {
+        int low = 1, high = n - 2;
+        while (low <= high) {
             int mid = low + (high - low) / 2;
-            // If mid element is smaller than its right neighbor,
-            // an upward slope exists to the right, guaranteeing a peak on the right.
-            if (nums[mid] < nums[mid + 1]) {
+
+            if (nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) {
+                return mid;
+            } else if (nums[mid] > nums[mid - 1]) {
+                // Ascending slope: a peak must exist to the right
                 low = mid + 1;
             } else {
-                // Otherwise, a peak exists on the left side (including mid itself).
-                high = mid;
+                // Descending slope: a peak must exist to the left
+                high = mid - 1;
             }
         }
-        return low;
+        return -1;
     }
 
     public static void main(String[] args) {
@@ -30,13 +32,10 @@ public class Solution {
         if (!sc.hasNextInt()) return;
         int n = sc.nextInt();
         int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = sc.nextInt();
-        }
+        for (int i = 0; i < n; i++) nums[i] = sc.nextInt();
 
         Solution sol = new Solution();
-        int peakIndex = sol.findPeakElement(nums);
-        System.out.println(peakIndex);
+        System.out.println(sol.findPeakElement(nums));
         sc.close();
     }
 }

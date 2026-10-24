@@ -1,6 +1,0 @@
-[a, a, b, a, c, b, a, a]
-[a, a, b, a, c, b, aa]
-[a, aba, c, b, a, a]
-[a, aba, c, b, aa]
-[aa, b, a, c, b, a, a]
-[aa, b, a, c, b, aa]

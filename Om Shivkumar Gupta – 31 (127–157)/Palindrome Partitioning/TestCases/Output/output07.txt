@@ -1,3 +1,0 @@
-[c, i, v, i, c]
-[c, ivi, c]
-[civic]

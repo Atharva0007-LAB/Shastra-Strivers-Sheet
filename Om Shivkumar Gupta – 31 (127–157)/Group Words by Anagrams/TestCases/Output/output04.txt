@@ -1,4 +1,0 @@
-[arc, car]
-[below, elbow]
-[listen, silent]
-[state]

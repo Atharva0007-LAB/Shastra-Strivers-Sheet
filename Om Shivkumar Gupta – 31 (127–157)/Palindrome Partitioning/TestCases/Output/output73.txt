@@ -1,4 +1,0 @@
-[c, c, a, a]
-[c, c, aa]
-[cc, a, a]
-[cc, aa]

@@ -1,4 +1,0 @@
-[b, c, b, b, c, a, b]
-[b, c, bb, c, a, b]
-[b, cbbc, a, b]
-[bcb, b, c, a, b]

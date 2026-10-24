@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 class TreeNode {
@@ -45,12 +45,14 @@ TreeNode* buildTree(vector<string>& arr) {
         TreeNode* curr = q.front();
         q.pop();
 
+        // Left child
         if (i < arr.size() && arr[i] != "null") {
             curr->left = new TreeNode(stoi(arr[i]));
             q.push(curr->left);
         }
         i++;
 
+        // Right child
         if (i < arr.size() && arr[i] != "null") {
             curr->right = new TreeNode(stoi(arr[i]));
             q.push(curr->right);
@@ -69,12 +71,9 @@ int main() {
     string token;
     vector<string> arr;
 
-    while (getline(ss, token, ',')) {
-        size_t start = token.find_first_not_of(" \t\r\n");
-        size_t end = token.find_last_not_of(" \t\r\n");
-
-        if (start != string::npos)
-            arr.push_back(token.substr(start, end - start + 1));
+    // Read space-separated values
+    while (ss >> token) {
+        arr.push_back(token);
     }
 
     TreeNode* root = buildTree(arr);
@@ -82,13 +81,14 @@ int main() {
     Solution obj;
     vector<int> ans = obj.inorderTraversal(root);
 
-    cout << "[";
+    // Print values without brackets or commas
     for (int i = 0; i < ans.size(); i++) {
         if (i > 0)
-            cout << ", ";
+            cout << " ";
         cout << ans[i];
     }
-    cout << "]" << endl;
+
+    cout << endl;
 
     return 0;
 }

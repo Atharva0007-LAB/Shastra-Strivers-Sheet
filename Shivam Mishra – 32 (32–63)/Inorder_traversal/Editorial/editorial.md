@@ -106,7 +106,7 @@ public:
         }
 
         inorder(root->left, result);
-        result.push_back(root->val);
+        result.push_back(root->data);
         inorder(root->right, result);
     }
 

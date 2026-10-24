@@ -1,0 +1,8 @@
+[act, act, act, act, atc, atc, atc, atc, atc, atc, cat, cat, cat, cat, cta, cta, cta, cta, cta, tac, tac, tac, tac, tac, tac, tac, tac, tca, tca]
+[ahgolrmit, aitlmrhog, algothirm, alritogmh, artmgoihl, atohirlgm, galthomir, gmrtaliho, hgtaoirml, hligraomt, hliomrgta, homlartgi, imgaltohr, imgorthla, iohraltmg, lmgarioht, mhotaglri, mohgtlira, oagilrthm, rmaohlitg, thigroalm, tliahomgr]
+[alpy, alpy, aylp, aylp, lapy, lapy, lapy, layp, layp, lyap, payl, play, plya, yalp, yalp, yapl, yapl, ylap, ylap, ylpa, ypal, ypla, ypla, ypla]
+[astr, atrs, atrs, atsr, rast, rats, rsta, rtsa, rtsa, satr, satr, tars, tasr, tasr, tras, trsa, trsa, tsar, tsra, tsra]
+[cdeo, ceod, coed, coed, dceo, deoc, doce, doce, doec, edco, edoc, eocd, eodc, ocde, ocde, odec, oecd, oedc, oedc, oedc]
+[dutys, duyts, dysut, dytus, dyust, sduty, stuyd, sudty, sytdu, tusdy, tuysd, tyusd, udsyt, udyts, ustdy, utyds, ydust, ysdut, ysutd, ytdsu]
+[enilts, enlsit, etlins, ietlsn, ilents, leints, lseint, lsietn, neslit, nletsi, nlstei, nsleti, nsteli, ntslie, seltni, silnte, sinetl, snietl, stieln, stniel, teilns, tilnse, tinlse, tnilse, tsenli]
+[ghitn, ghitn, githn, gnthi, hgint, hgtin, hgtni, hngti, hnigt, htgin, htign, htign, hting, htngi, itngh, nghit, ngtih, ngtih, nhigt, nhigt, ntgih, nthig, thnig, tngih, tnigh, tnihg]

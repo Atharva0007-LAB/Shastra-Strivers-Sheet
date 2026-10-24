@@ -1,0 +1,8 @@
+[act, act, act, act, act, act, act, atc, atc, atc, atc, cat, cat, cat, cat, cat, cta, cta, cta, tac, tac, tac, tca, tca, tca]
+[ahtglirom, arltoihmg, ghamrtlio, ghmroliat, glohamtri, hlaromitg, hltmariog, ilrhagtmo, lghmroati, lhrtgoaim, migohtlar, mrliatgoh, tilrogahm, tirhagoml, tirlghoma, toimlhagr]
+[alpy, apyl, apyl, aylp, aypl, layp, lpya, lyap, lypa, paly, play, pyal, yapl, ylap, ylap, ylpa, ylpa, ypal, ypla]
+[asrt, astr, astr, rsat, rsat, rtas, rtas, rtas, satr, satr, satr, satr, satr, srat, tasr, tras]
+[cdeo, cdoe, cedo, code, dceo, dcoe, doec, ecod, oced, oced, odec, oecd, oecd, oedc, oedc, oedc]
+[dstuy, stuyd, sydtu, sytdu, tdyus, tsydu, tusyd, tysdu, udtsy, usdyt, ysutd, ytusd, yustd]
+[einlts, eisntl, enstli, lntsie, lseitn, nleits, nsilte, snietl, stelin, tensil, tesnli, tesnli, tisenl, tlines, tlines, tlseni, tnilse, tslien, tsneli]
+[gnhti, gthin, gthin, higtn, hngit, hting, inght, ingth, intgh, itgnh, ngiht, ngtih, nhitg, ntghi, tgihn, tgnhi, thign, thing, thngi, tihgn, tngih, tnigh]

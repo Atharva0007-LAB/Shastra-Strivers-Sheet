@@ -1,0 +1,8 @@
+[act, atc, atc, atc, atc, cat, cat, cat, cat, cat, cta, cta, cta, cta, cta, cta, tac, tac, tac, tac, tac, tac, tac, tac, tca, tca]
+[alyp, alyp, aply, aply, aply, apyl, aylp, layp, layp, layp, lpya, lyap, lyap, payl, payl, plya, pyla, yalp, yalp, yapl, yapl, ylap, ypla, ypla, ypla]
+[astr, atrs, atsr, atsr, rast, rast, rsat, rsta, srat, srat, srta, star, star, stra, stra, stra, tars, tars, tars, tasr, tsar]
+[cedo, ceod, ceod, coed, dceo, dcoe, deco, deoc, doce, ecdo, ecod, ecod, edco, edoc, eocd, ocde, ocde, odec, odec, oecd, oecd, oecd]
+[dstyu, dsuty, dsyut, dtuys, dtyus, dusyt, dytsu, stydu, tdusy, tsdyu, tsudy, tyuds, usdyt, usdyt, usydt, usytd, utdys, utsdy, uytsd, yduts, ystud, ysudt, ysutd, ytdus, ytusd, yusdt, yustd, yutds, yutsd]
+[elnist, entsli, eslint, etnils, etsiln, ieltsn, ienlts, ietnsl, inltse, itnesl, listne, litsen, ltsine, nilest, nltsie, ntesil, ntlesi, ntslei, seilnt, seinlt, slient, slitne, stnlei, tiesnl, tsnile]
+[ghint, ghint, ghtni, gihnt, gitnh, gthin, hgtni, hintg, hintg, hintg, hitgn, hntgi, htign, hting, ignht, intgh, intgh, intgh, ithng, itnhg, nhtig, nihtg, ntigh, ntigh, ntihg, tgihn, tgihn, tignh]
+[giathmolr, gitmorhla, gtmlriaho, hrgoitalm, ilotahgrm, imlhtagro, lihtgmaro, logmirhat, ltaohrgim, mhraolitg, mhraotlgi, mohalritg, oighatlrm, orhtimgla, rimoghlta, rlmighoat, rotmghlia, tmrgihola]

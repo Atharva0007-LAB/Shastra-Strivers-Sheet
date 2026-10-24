@@ -1,0 +1,3 @@
+[n, o, o, n]
+[n, oo, n]
+[noon]

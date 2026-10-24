@@ -1,0 +1,6 @@
+[c, a, b, a, b, c, c, a]
+[c, a, b, a, b, cc, a]
+[c, a, bab, c, c, a]
+[c, a, bab, cc, a]
+[c, aba, b, c, c, a]
+[c, aba, b, cc, a]

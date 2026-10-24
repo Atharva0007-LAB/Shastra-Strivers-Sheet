@@ -1,0 +1,8 @@
+[act, act, act, atc, atc, cat, cta, cta, cta, tac, tac, tac, tac, tac, tca, tca, tca]
+[alpy, alyp, alyp, aypl, lapy, lapy, layp, layp, lpay, lpay, lyap, lyap, lypa, paly, paly, play, plya, plya, pyal, yalp, yalp, ylap, ylap, ypla]
+[arhmliogt, glahromti, haogritlm, hargtiolm, hitlrgaom, hlmagtori, hlomatirg, hrgiotaml, lgorhamit, lhioramgt, lihrmtgao, loahrtigm, lomihagtr, marloithg, mhgrtliao, migaohtlr, mtrihalgo, oglmrhita, ohgailrmt, othmaigrl, ramloihtg, rgtlmiaho, rlmgohita, rmtlogiha, talmgohri, tghlaimro, toahirlgm]
+[asrt, astr, atrs, atrs, atsr, rats, rats, rsat, rtas, rtsa, sart, sart, satr, srat, srta, tars, tasr, tasr, tasr, tasr, tras, tras, tras]
+[cdoe, cdoe, cedo, dcoe, dcoe, deco, doce, doec, edco, edco, edoc, edoc, eodc, eodc, eodc, oced, odce, oecd, oedc, oedc]
+[dstyu, dsuyt, dtysu, dtyus, dyust, sdtuy, sduyt, sduyt, stydu, styud, sudty, syudt, tdsyu, tdsyu, tdusy, ustyd, yustd, yutsd]
+[esilnt, esntli, etilns, etsnil, ielnst, intsel, lenist, linset, listen, lnesit, lnesti, lnsiet, nitesl, ntesli, slitne, snltie, stnlie, tlesni, tnseil, tsilne]
+[ghint, gnthi, gtinh, gtnih, hgint, hgnit, hgtin, higtn, higtn, htgni, igtnh, ihngt, ihngt, ingth, itghn, ithgn, nghit, ngith, ngthi, ngthi, ngtih, ngtih, nhgit, tginh, tihng, tinhg, tnigh, tnigh, tnihg]

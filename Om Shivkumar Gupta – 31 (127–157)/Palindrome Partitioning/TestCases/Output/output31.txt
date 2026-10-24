@@ -1,0 +1,4 @@
+[b, a, a, b, a]
+[b, a, aba]
+[b, aa, b, a]
+[baab, a]

@@ -1,0 +1,4 @@
+[r, e, v, i, v, e, r]
+[r, e, viv, e, r]
+[r, evive, r]
+[reviver]

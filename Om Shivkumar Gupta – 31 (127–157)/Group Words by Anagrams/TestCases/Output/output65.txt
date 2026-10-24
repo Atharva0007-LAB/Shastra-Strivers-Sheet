@@ -1,0 +1,8 @@
+[act, act, act, act, act, act, atc, atc, cat, cat, cat, cta, cta, cta, cta, cta, cta, tac, tac, tac, tac, tca, tca, tca, tca, tca, tca, tca, tca, tca]
+[agrmlitoh, alimotghr, altirgmoh, atmoilgrh, ghrtmilao, gomrthail, gtamoirhl, hiarolmgt, hlitmaorg, hmragolti, hoiragltm, ialmtohrg, iatglhomr, igltohmra, imltrogah, lgtihmrao, lihorgmat, lrhtiagmo, mghorliat, mhroiatgl, mlihragto, oligmtrha, olitrgmha, omgiarhlt, ortimahgl, otrlimgha, thligmroa, tmaihlogr, tolghamri]
+[alpy, alpy, alpy, aply, aply, aylp, aylp, aylp, aypl, aypl, aypl, aypl, lapy, lapy, layp, lpay, lyap, lypa, paly, plya, plya, pyal, pyal, pyal, pyal, pyla, yapl, yapl, ylap, ylpa, ypal, ypal, ypla]
+[arst, atsr, rats, rats, rats, rsat, rsta, rtsa, sart, srta, tars, tars, tras, trsa, trsa, trsa, tsar, tsar, tsra]
+[cdeo, cdoe, cdoe, cedo, cedo, ceod, ceod, code, coed, coed, coed, dcoe, deco, doce, doce, doec, doec, ecod, edoc, eocd, eodc, ocde, odce, odec, odec, oecd, oecd, oecd, oedc]
+[dsuyt, dsyut, dtyus, dusty, dutsy, duyst, duyst, sdtuy, sduyt, sdyut, sudty, tdysu, tsudy, tuysd, tysdu, udsty, udtys, udyts, ustyd, utyds, uytds, uytsd, ydtsu, ydtus, ystud, yutds]
+[etisln, etlnsi, iesltn, istenl, lentsi, lesint, lnetis, lntsie, lsenti, ltiens, netisl, netsli, nielts, nilest, nlsiet, snilet, snitle, stienl, stlien, tisnle, tselin, tslien]
+[gihtn, gtnih, hgtni, hingt, hngit, hntig, htgni, ihgtn, ihngt, ihntg, ihtgn, inght, ngiht, nhgit, nhigt, nhtgi, nihgt, nitgh, ntghi, ntghi, tgihn, tingh]

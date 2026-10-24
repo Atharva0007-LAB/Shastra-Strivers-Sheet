@@ -1,0 +1,4 @@
+[b, b, b, c]
+[b, bb, c]
+[bb, b, c]
+[bbb, c]

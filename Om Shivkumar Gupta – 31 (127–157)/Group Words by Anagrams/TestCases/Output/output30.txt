@@ -1,0 +1,8 @@
+[act, act, act, act, act, act, act, act, atc, atc, atc, atc, atc, atc, atc, atc, atc, atc, cat, cat, cat, cat, cat, cta, cta, tac, tac, tac, tac, tac, tca, tca, tca, tca, tca, tca]
+[aiotlhmrg, girmtohal, gmaitrhol, gmothilra, grmahliot, gtomirhal, harmltgio, hgiamrlot, hiamtgolr, hlgtormai, hlmagotri, hmglaroit, hmoaltgir, iogrmhalt, itmorlgah, lhatgmrio, litmrghao, lotarhgmi, oatmrilgh, olitarmgh, omhrlgtia, otigmlarh, otraimghl, rahotligm, rhalmgoti, riaomlght, rimalotgh, rtlohagmi, tahrimogl, thomlgiar, tliahgomr, tmglrhioa, trahglmio, trgoalimh]
+[alpy, alpy, alyp, alyp, alyp, alyp, apyl, apyl, aylp, aylp, aypl, aypl, layp, lpay, lpya, lpya, lpya, lyap, lyap, lypa, paly, payl, play, play, play, pyal, pyal, pyal, pyal, pyla, yalp, yalp, yapl, yapl, yapl, ylpa, ypal, ypla]
+[arst, astr, astr, astr, atrs, rast, rast, rats, rats, rats, rsta, rsta, rsta, rsta, rsta, rtas, rtas, rtsa, rtsa, satr, satr, srta, srta, star, star, stra, tars, tasr, tasr, tasr, tasr, tsar, tsra]
+[cdeo, code, dceo, dceo, dcoe, dcoe, dcoe, deco, deoc, deoc, doce, doec, ecod, edco, eocd, eodc, eodc, ocde, odec, oecd]
+[dsyut, dtsuy, dtsyu, duyts, dystu, dysut, dysut, sdtyu, sduty, sdyut, stduy, stuyd, suydt, suydt, sytud, tduys, tdysu, tdyus, tsudy, tsuyd, tusdy, tusyd, tuyds, tysdu, tysdu, tyuds, utysd, uydst, uydts, uysdt, ydstu, ydstu, ydsut, ysutd, ysutd, yutsd]
+[elnsit, esinlt, etlsin, ienlst, ientsl, isletn, leistn, lestin, lients, litens, lneist, lnetsi, lsteni, ltsein, neilts, nstiel, seintl, setlni, setnli, slinet, sntile, tenlis, tinsel]
+[gnhit, hgnit, hgtin, higtn, hintg, hntig, htgni, htign, htngi, igthn, igtnh, ihntg, ihntg, ihntg, intgh, inthg, itghn, ngith, nigth, nitgh, ntgih, tgnhi, tgnih, thing, tihng, tingh, tingh, tnghi, tngih, tnihg]

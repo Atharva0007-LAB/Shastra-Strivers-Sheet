@@ -1,0 +1,8 @@
+[act, act, cat, cat, cat, cat, cat, cta, tac, tac, tac, tac, tac, tac, tac, tca]
+[alpy, aylp, aypl, layp, lypa, lypa, plya, plya, pyla, yapl, ylap, ylap, ylpa, ypal, ypla, ypla]
+[arst, asrt, atrs, rast, rsta, rtas, tasr, tras, trsa, tsra, tsra]
+[code, deco, deco, doce, doce, doec, ecdo, ecdo, ecod, edco, edco, edco, edco, edoc, eocd, ocde, odce, oecd, oecd, oedc]
+[dsyut, dtsuy, sdtuy, sdtuy, stduy, syutd, udtsy, ustyd, usydt, uysdt, uysdt, ytsdu]
+[einstl, esltni, etisnl, ilsten, intesl, isnlet, itnlse, liesnt, lsinet, ltines, netils, nilset, selnti, senilt, sietln, siteln, slenit, snilet, tneils, tselni]
+[ghitn, ghnti, ghtin, ginht, gtihn, gtihn, hgnti, igtnh, ihgtn, inght, inght, itgnh, nigth, ntigh, thgin, thnig, tnigh]
+[lgartomih, lmtrohgai, lormtigha, oghtalmri, rhlmoigta, rmoaghtil, rmohltaig, tahrgolim, tmigarhlo, trgaolmih]

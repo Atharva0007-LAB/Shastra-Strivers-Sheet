@@ -1,0 +1,6 @@
+cat bed 5
+bat
+bad
+bed
+bot
+bog

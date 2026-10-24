@@ -1,0 +1,6 @@
+cat bog 5
+bat
+cot
+bot
+bog
+bad

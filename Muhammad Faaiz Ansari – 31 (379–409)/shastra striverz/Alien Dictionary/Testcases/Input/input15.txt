@@ -1,0 +1,11 @@
+10 4
+d
+dac
+cabcd
+cbcddba
+a
+adadddb
+aacb
+bdaacac
+badcb
+babcadc

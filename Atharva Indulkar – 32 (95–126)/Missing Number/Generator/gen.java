@@ -1,3 +1,4 @@
+// Missing Number - Generator/gen.java
 import java.io.*;
 import java.util.*;
 
@@ -14,35 +15,22 @@ public class gen {
         inputDir.mkdirs();
         outputDir.mkdirs();
 
-        List<int[][]> testCases = new ArrayList<>();
-        testCases.add(generateTC0());
-        testCases.add(generateTC1());
-        testCases.add(generateTC2());
-        testCases.add(generateTC3());
-        testCases.add(generateTC4());
-        testCases.add(generateTC5());
-        testCases.add(generateTC6());
-        testCases.add(generateTC7());
+        List<int[]> cases = buildCases();
+        if (cases.size() != 100) {
+            throw new IllegalStateException("Expected 100 testcases but built " + cases.size());
+        }
 
-        for (int i = 0; i < testCases.size(); i++) {
+        for (int i = 0; i < cases.size(); i++) {
             String fileName = String.format("%02d", i);
-            File inFile = new File(inputDir, "input" + fileName + ".txt");
-            File outFile = new File(outputDir, "output" + fileName + ".txt");
+            int[] arr = cases.get(i);
 
-            int[][] cases = testCases.get(i);
-
-            PrintWriter inWriter = new PrintWriter(new BufferedWriter(new FileWriter(inFile)));
-            inWriter.println(cases.length);
-            for (int[] arr : cases) {
-                inWriter.println(arr.length);
-                inWriter.println(join(arr));
-            }
+            PrintWriter inWriter = new PrintWriter(new BufferedWriter(new FileWriter(new File(inputDir, "input" + fileName + ".txt"))));
+            inWriter.println(arr.length);
+            inWriter.println(join(arr));
             inWriter.close();
 
-            PrintWriter outWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)));
-            for (int[] arr : cases) {
-                outWriter.println(solve(arr));
-            }
+            PrintWriter outWriter = new PrintWriter(new BufferedWriter(new FileWriter(new File(outputDir, "output" + fileName + ".txt"))));
+            outWriter.println(solve(arr));
             outWriter.close();
         }
         System.out.println("Testcases generated successfully!");
@@ -95,87 +83,59 @@ public class gen {
         return res;
     }
 
-    // TC0: the three examples from the problem statement
-    static int[][] generateTC0() {
-        return new int[][]{
-            {3, 0, 1},
-            {0, 1},
-            {9, 6, 4, 2, 3, 5, 7, 0, 1}
-        };
-    }
+    // 100 testcases: 0-2 samples, then edge cases, patterns, random small / medium / large, last 7 at max size
+    static List<int[]> buildCases() {
+        Random rand = new Random(2026);
+        List<int[]> list = new ArrayList<>();
 
-    // TC1: n = 1 and n = 2, every possible missing value
-    static int[][] generateTC1() {
-        return new int[][]{
-            {0},
-            {1},
-            {1, 0},
-            {0, 2},
-            {1, 2},
-            {2, 0},
-            {2, 1}
-        };
-    }
+        // Examples from the problem statement
+        list.add(new int[]{3, 0, 1});
+        list.add(new int[]{0, 1});
+        list.add(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1});
 
-    // TC2: n = 10, missing 0, missing n, missing a middle value, sorted and reverse sorted
-    static int[][] generateTC2() {
-        return new int[][]{
-            sortedWithout(10, 0),
-            sortedWithout(10, 10),
-            sortedWithout(10, 5),
-            reversed(sortedWithout(10, 0)),
-            reversed(sortedWithout(10, 10)),
-            reversed(sortedWithout(10, 5))
-        };
-    }
+        // n = 1 and n = 2, every possible missing value
+        list.add(new int[]{0});
+        list.add(new int[]{1});
+        list.add(new int[]{1, 0});
+        list.add(new int[]{0, 2});
+        list.add(new int[]{1, 2});
+        list.add(new int[]{2, 0});
+        list.add(new int[]{2, 1});
 
-    // TC3: random small cases
-    static int[][] generateTC3() {
-        Random rand = new Random(42);
-        int[][] cases = new int[50][];
-        for (int i = 0; i < 50; i++) {
+        // n = 10: missing 0, missing n, missing a middle value, sorted and reverse sorted
+        for (int missing : new int[]{0, 10, 5}) {
+            list.add(sortedWithout(10, missing));
+            list.add(reversed(sortedWithout(10, missing)));
+        }
+
+        // Random small
+        while (list.size() < 60) {
             int n = 1 + rand.nextInt(30);
-            cases[i] = shuffled(n, rand.nextInt(n + 1), rand);
+            list.add(shuffled(n, rand.nextInt(n + 1), rand));
         }
-        return cases;
-    }
 
-    // TC4: max size (n = 10^4), shuffled
-    static int[][] generateTC4() {
-        Random rand = new Random(999);
-        return new int[][]{shuffled(10000, rand.nextInt(10001), rand)};
-    }
-
-    // TC5: t = 1000 cases, medium n
-    static int[][] generateTC5() {
-        Random rand = new Random(1234);
-        int[][] cases = new int[1000][];
-        for (int i = 0; i < 1000; i++) {
-            int n = 1 + rand.nextInt(200);
-            cases[i] = shuffled(n, rand.nextInt(n + 1), rand);
+        // Random medium
+        while (list.size() < 85) {
+            int n = 100 + rand.nextInt(901);
+            list.add(shuffled(n, rand.nextInt(n + 1), rand));
         }
-        return cases;
-    }
 
-    // TC6: max-size sorted arrays: missing 0, missing n, missing the middle, plus reverse sorted
-    static int[][] generateTC6() {
+        // Random large
+        while (list.size() < 93) {
+            int n = 2000 + rand.nextInt(8000);
+            list.add(shuffled(n, rand.nextInt(n + 1), rand));
+        }
+
+        // Max size (n = 10^4)
         int n = 10000;
-        return new int[][]{
-            sortedWithout(n, 0),
-            sortedWithout(n, n),
-            sortedWithout(n, n / 2),
-            reversed(sortedWithout(n, n / 2))
-        };
-    }
+        list.add(sortedWithout(n, 0));
+        list.add(sortedWithout(n, n));
+        list.add(sortedWithout(n, n / 2));
+        list.add(reversed(sortedWithout(n, n / 2)));
+        list.add(shuffled(n, rand.nextInt(n + 1), rand));
+        list.add(shuffled(n, rand.nextInt(n + 1), rand));
+        list.add(shuffled(n, rand.nextInt(n + 1), rand));
 
-    // TC7: 20 larger shuffled cases, sum of n <= 2 * 10^5
-    static int[][] generateTC7() {
-        Random rand = new Random(2024);
-        int[][] cases = new int[20][];
-        for (int i = 0; i < 20; i++) {
-            int n = 100 + rand.nextInt(9901);
-            cases[i] = shuffled(n, rand.nextInt(n + 1), rand);
-        }
-        return cases;
+        return list;
     }
 }

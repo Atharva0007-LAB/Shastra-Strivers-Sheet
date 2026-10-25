@@ -1,3 +1,4 @@
+// Remove Duplicates from Sorted Array - Generator/gen.java
 import java.io.*;
 import java.util.*;
 
@@ -14,35 +15,22 @@ public class gen {
         inputDir.mkdirs();
         outputDir.mkdirs();
 
-        List<int[][]> testCases = new ArrayList<>();
-        testCases.add(generateTC0());
-        testCases.add(generateTC1());
-        testCases.add(generateTC2());
-        testCases.add(generateTC3());
-        testCases.add(generateTC4());
-        testCases.add(generateTC5());
-        testCases.add(generateTC6());
-        testCases.add(generateTC7());
+        List<int[]> cases = buildCases();
+        if (cases.size() != 100) {
+            throw new IllegalStateException("Expected 100 testcases but built " + cases.size());
+        }
 
-        for (int i = 0; i < testCases.size(); i++) {
+        for (int i = 0; i < cases.size(); i++) {
             String fileName = String.format("%02d", i);
-            File inFile = new File(inputDir, "input" + fileName + ".txt");
-            File outFile = new File(outputDir, "output" + fileName + ".txt");
+            int[] arr = cases.get(i);
 
-            int[][] cases = testCases.get(i);
-
-            PrintWriter inWriter = new PrintWriter(new BufferedWriter(new FileWriter(inFile)));
-            inWriter.println(cases.length);
-            for (int[] arr : cases) {
-                inWriter.println(arr.length);
-                inWriter.println(join(arr));
-            }
+            PrintWriter inWriter = new PrintWriter(new BufferedWriter(new FileWriter(new File(inputDir, "input" + fileName + ".txt"))));
+            inWriter.println(arr.length);
+            inWriter.println(join(arr));
             inWriter.close();
 
-            PrintWriter outWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)));
-            for (int[] arr : cases) {
-                outWriter.println(solve(arr));
-            }
+            PrintWriter outWriter = new PrintWriter(new BufferedWriter(new FileWriter(new File(outputDir, "output" + fileName + ".txt"))));
+            outWriter.println(solve(arr));
             outWriter.close();
         }
         System.out.println("Testcases generated successfully!");
@@ -71,31 +59,34 @@ public class gen {
         return arr;
     }
 
-    // TC0: samples from the problem statement
-    static int[][] generateTC0() {
-        return new int[][]{
-            {1, 1, 2},
-            {0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
-        };
+    // Random sorted array whose value range has a random width (1 to 201 distinct values possible)
+    static int[] sortedRandomAnyRange(int n, Random rand) {
+        int width = 1 + rand.nextInt(201);
+        int lo = -100 + rand.nextInt(202 - width);
+        return sortedRandom(n, lo, lo + width - 1, rand);
     }
 
-    // TC1: tiny arrays and value boundaries (-100 and 100)
-    static int[][] generateTC1() {
-        return new int[][]{
-            {7},
-            {-100},
-            {100},
-            {1, 1},
-            {1, 2},
-            {-100, 100},
-            {0, 0, 0},
-            {-100, -100, 100, 100},
-            {-1, 0, 1}
-        };
-    }
+    // 100 testcases: 0-1 samples, then edge cases, patterns, random small / medium / large, last 7 at max size
+    static List<int[]> buildCases() {
+        Random rand = new Random(2026);
+        List<int[]> list = new ArrayList<>();
 
-    // TC2: structured patterns (all same, all distinct, each value twice, negatives repeated)
-    static int[][] generateTC2() {
+        // Samples from the problem statement
+        list.add(new int[]{1, 1, 2});
+        list.add(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4});
+
+        // Tiny arrays and value boundaries (-100 and 100)
+        list.add(new int[]{7});
+        list.add(new int[]{-100});
+        list.add(new int[]{100});
+        list.add(new int[]{1, 1});
+        list.add(new int[]{1, 2});
+        list.add(new int[]{-100, 100});
+        list.add(new int[]{0, 0, 0});
+        list.add(new int[]{-100, -100, 100, 100});
+        list.add(new int[]{-1, 0, 1});
+
+        // Patterns: all same, all distinct, each value twice, negatives repeated
         int[] allSame = new int[1000];
         Arrays.fill(allSame, -5);
 
@@ -115,59 +106,49 @@ public class gen {
             negativeRepeated[3 * i + 2] = -100 + i;
         }
 
-        return new int[][]{allSame, allDistinct, eachTwice, negativeRepeated};
-    }
+        list.add(allSame);
+        list.add(allDistinct);
+        list.add(eachTwice);
+        list.add(negativeRepeated);
 
-    // TC3: random small cases over the full value range
-    static int[][] generateTC3() {
-        Random rand = new Random(42);
-        int[][] cases = new int[50][];
-        for (int i = 0; i < 50; i++) {
+        // Random small
+        while (list.size() < 60) {
             int n = 1 + rand.nextInt(30);
-            cases[i] = sortedRandom(n, -100, 100, rand);
+            list.add(sortedRandomAnyRange(n, rand));
         }
-        return cases;
-    }
 
-    // TC4: max size (n = 3 * 10^4), values in [-100, 100]
-    static int[][] generateTC4() {
-        Random rand = new Random(999);
-        return new int[][]{sortedRandom(30000, -100, 100, rand)};
-    }
-
-    // TC5: t = 1000 cases, small value range so duplicates are common
-    static int[][] generateTC5() {
-        Random rand = new Random(1234);
-        int[][] cases = new int[1000][];
-        for (int i = 0; i < 1000; i++) {
-            int n = 1 + rand.nextInt(200);
-            cases[i] = sortedRandom(n, -3, 3, rand);
+        // Random medium
+        while (list.size() < 85) {
+            int n = 100 + rand.nextInt(901);
+            list.add(sortedRandomAnyRange(n, rand));
         }
-        return cases;
-    }
 
-    // TC6: three max-size arrays: all 0, spread evenly over [-100, 100], only -100 and 100
-    static int[][] generateTC6() {
+        // Random large
+        while (list.size() < 93) {
+            int n = 5000 + rand.nextInt(25000);
+            list.add(sortedRandomAnyRange(n, rand));
+        }
+
+        // Max size (n = 3 * 10^4)
         int n = 30000;
-        int[] allSame = new int[n];
-
         int[] spread = new int[n];
         for (int i = 0; i < n; i++) spread[i] = -100 + (int) ((long) i * 201 / n);
 
         int[] twoValues = new int[n];
         for (int i = 0; i < n; i++) twoValues[i] = i < n / 2 ? -100 : 100;
 
-        return new int[][]{allSame, spread, twoValues};
-    }
+        int[] mostlyOne = new int[n];
+        for (int i = 0; i < 10; i++) mostlyOne[i] = -100 + rand.nextInt(201);
+        Arrays.sort(mostlyOne);
 
-    // TC7: 40 medium cases over the full range
-    static int[][] generateTC7() {
-        Random rand = new Random(2024);
-        int[][] cases = new int[40][];
-        for (int i = 0; i < 40; i++) {
-            int n = 1 + rand.nextInt(2000);
-            cases[i] = sortedRandom(n, -100, 100, rand);
-        }
-        return cases;
+        list.add(new int[n]);
+        list.add(spread);
+        list.add(twoValues);
+        list.add(sortedRandom(n, -100, 100, rand));
+        list.add(sortedRandom(n, -3, 3, rand));
+        list.add(sortedRandom(n, -100, -90, rand));
+        list.add(mostlyOne);
+
+        return list;
     }
 }

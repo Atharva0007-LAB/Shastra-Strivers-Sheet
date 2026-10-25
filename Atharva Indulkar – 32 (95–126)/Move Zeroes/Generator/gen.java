@@ -1,3 +1,4 @@
+// Move Zeroes - Generator/gen.java
 import java.io.*;
 import java.util.*;
 
@@ -14,35 +15,22 @@ public class gen {
         inputDir.mkdirs();
         outputDir.mkdirs();
 
-        List<int[][]> testCases = new ArrayList<>();
-        testCases.add(generateTC0());
-        testCases.add(generateTC1());
-        testCases.add(generateTC2());
-        testCases.add(generateTC3());
-        testCases.add(generateTC4());
-        testCases.add(generateTC5());
-        testCases.add(generateTC6());
-        testCases.add(generateTC7());
+        List<int[]> cases = buildCases();
+        if (cases.size() != 100) {
+            throw new IllegalStateException("Expected 100 testcases but built " + cases.size());
+        }
 
-        for (int i = 0; i < testCases.size(); i++) {
+        for (int i = 0; i < cases.size(); i++) {
             String fileName = String.format("%02d", i);
-            File inFile = new File(inputDir, "input" + fileName + ".txt");
-            File outFile = new File(outputDir, "output" + fileName + ".txt");
+            int[] arr = cases.get(i);
 
-            int[][] cases = testCases.get(i);
-
-            PrintWriter inWriter = new PrintWriter(new BufferedWriter(new FileWriter(inFile)));
-            inWriter.println(cases.length);
-            for (int[] arr : cases) {
-                inWriter.println(arr.length);
-                inWriter.println(join(arr));
-            }
+            PrintWriter inWriter = new PrintWriter(new BufferedWriter(new FileWriter(new File(inputDir, "input" + fileName + ".txt"))));
+            inWriter.println(arr.length);
+            inWriter.println(join(arr));
             inWriter.close();
 
-            PrintWriter outWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)));
-            for (int[] arr : cases) {
-                outWriter.println(solve(arr));
-            }
+            PrintWriter outWriter = new PrintWriter(new BufferedWriter(new FileWriter(new File(outputDir, "output" + fileName + ".txt"))));
+            outWriter.println(solve(arr));
             outWriter.close();
         }
         System.out.println("Testcases generated successfully!");
@@ -81,33 +69,27 @@ public class gen {
         return arr;
     }
 
-    // TC0: samples from the problem statement
-    static int[][] generateTC0() {
-        return new int[][]{
-            {0, 1, 0, 3, 12},
-            {0}
-        };
-    }
+    // 100 testcases: 0-1 samples, then edge cases, patterns, random small / medium / large, last 7 at max size
+    static List<int[]> buildCases() {
+        Random rand = new Random(2026);
+        List<int[]> list = new ArrayList<>();
 
-    // TC1: tiny arrays and int boundaries
-    static int[][] generateTC1() {
-        return new int[][]{
-            {5},
-            {0},
-            {0, 0},
-            {1, 2},
-            {0, 1},
-            {1, 0},
-            {Integer.MIN_VALUE, 0, Integer.MAX_VALUE},
-            {0, 0, 1},
-            {1, 0, 0}
-        };
-    }
+        // Samples from the problem statement
+        list.add(new int[]{0, 1, 0, 3, 12});
+        list.add(new int[]{0});
 
-    // TC2: structured patterns (all zeros, no zeros, zeros at start/end, alternating, single zero/non-zero)
-    static int[][] generateTC2() {
-        int[] allZeros = new int[100];
+        // Tiny arrays and int limits
+        list.add(new int[]{5});
+        list.add(new int[]{0, 0});
+        list.add(new int[]{1, 2});
+        list.add(new int[]{0, 1});
+        list.add(new int[]{1, 0});
+        list.add(new int[]{Integer.MIN_VALUE, 0, Integer.MAX_VALUE});
+        list.add(new int[]{0, 0, 1});
+        list.add(new int[]{1, 0, 0});
+        list.add(new int[]{0, 0, 0, 0, 5});
 
+        // Patterns: all zeros, no zeros, zeros first, zeros last, alternating, single non-zero, single zero
         int[] noZeros = new int[100];
         for (int i = 0; i < 100; i++) noZeros[i] = i + 1;
 
@@ -127,64 +109,49 @@ public class gen {
         for (int i = 0; i < 99; i++) singleZero[i] = i + 1;
         singleZero[49] = 0;
 
-        return new int[][]{allZeros, noZeros, zerosFirst, zerosLast, alternating, singleNonZero, singleZero};
-    }
+        list.add(new int[100]);
+        list.add(noZeros);
+        list.add(zerosFirst);
+        list.add(zerosLast);
+        list.add(alternating);
+        list.add(singleNonZero);
+        list.add(singleZero);
 
-    // TC3: random small cases with varying zero density
-    static int[][] generateTC3() {
-        Random rand = new Random(42);
-        int[][] cases = new int[50][];
-        for (int i = 0; i < 50; i++) {
+        // Random small
+        while (list.size() < 60) {
             int n = 1 + rand.nextInt(20);
-            cases[i] = randomWithZeros(n, rand.nextInt(101), rand);
+            list.add(randomWithZeros(n, rand.nextInt(101), rand));
         }
-        return cases;
-    }
 
-    // TC4: max size (n = 10^4), about half zeros
-    static int[][] generateTC4() {
-        Random rand = new Random(999);
-        return new int[][]{randomWithZeros(10000, 50, rand)};
-    }
-
-    // TC5: t = 1000 cases, medium n (sum of n stays well under 2 * 10^5)
-    static int[][] generateTC5() {
-        Random rand = new Random(1234);
-        int[][] cases = new int[1000][];
-        for (int i = 0; i < 1000; i++) {
-            int n = 1 + rand.nextInt(200);
-            cases[i] = randomWithZeros(n, rand.nextInt(101), rand);
+        // Random medium
+        while (list.size() < 85) {
+            int n = 100 + rand.nextInt(901);
+            list.add(randomWithZeros(n, rand.nextInt(101), rand));
         }
-        return cases;
-    }
 
-    // TC6: four max-size arrays: all zeros, no zeros, zeros first half, zeros second half
-    static int[][] generateTC6() {
+        // Random large
+        while (list.size() < 93) {
+            int n = 2000 + rand.nextInt(8000);
+            list.add(randomWithZeros(n, rand.nextInt(101), rand));
+        }
+
+        // Max size (n = 10^4)
         int n = 10000;
-        int[] allZeros = new int[n];
+        int[] maxNoZeros = new int[n];
+        for (int i = 0; i < n; i++) maxNoZeros[i] = i + 1;
+        int[] maxZerosFirst = new int[n];
+        for (int i = n / 2; i < n; i++) maxZerosFirst[i] = i - n / 2 + 1;
+        int[] maxZerosLast = new int[n];
+        for (int i = 0; i < n / 2; i++) maxZerosLast[i] = i + 1;
 
-        int[] noZeros = new int[n];
-        for (int i = 0; i < n; i++) noZeros[i] = i + 1;
+        list.add(new int[n]);
+        list.add(maxNoZeros);
+        list.add(maxZerosFirst);
+        list.add(maxZerosLast);
+        list.add(randomWithZeros(n, 50, rand));
+        list.add(randomWithZeros(n, 10, rand));
+        list.add(randomWithZeros(n, 90, rand));
 
-        int[] zerosFirst = new int[n];
-        for (int i = n / 2; i < n; i++) zerosFirst[i] = i - n / 2 + 1;
-
-        int[] zerosLast = new int[n];
-        for (int i = 0; i < n / 2; i++) zerosLast[i] = i + 1;
-
-        return new int[][]{allZeros, noZeros, zerosFirst, zerosLast};
-    }
-
-    // TC7: heavy duplicates (values 0, 1, 2), 20 cases, sum of n <= 2 * 10^5
-    static int[][] generateTC7() {
-        Random rand = new Random(2024);
-        int[][] cases = new int[20][];
-        for (int i = 0; i < 20; i++) {
-            int n = 1 + rand.nextInt(10000);
-            int[] arr = new int[n];
-            for (int j = 0; j < n; j++) arr[j] = rand.nextInt(3);
-            cases[i] = arr;
-        }
-        return cases;
+        return list;
     }
 }

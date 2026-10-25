@@ -1,3 +1,4 @@
+// Rotate Array - Generator/gen.java
 import java.io.*;
 import java.util.*;
 
@@ -14,37 +15,23 @@ public class gen {
         inputDir.mkdirs();
         outputDir.mkdirs();
 
-        List<Object[][]> testCases = new ArrayList<>();
-        testCases.add(generateTC0());
-        testCases.add(generateTC1());
-        testCases.add(generateTC2());
-        testCases.add(generateTC3());
-        testCases.add(generateTC4());
-        testCases.add(generateTC5());
-        testCases.add(generateTC6());
-        testCases.add(generateTC7());
+        List<Object[]> cases = buildCases();
+        if (cases.size() != 100) {
+            throw new IllegalStateException("Expected 100 testcases but built " + cases.size());
+        }
 
-        for (int i = 0; i < testCases.size(); i++) {
+        for (int i = 0; i < cases.size(); i++) {
             String fileName = String.format("%02d", i);
-            File inFile = new File(inputDir, "input" + fileName + ".txt");
-            File outFile = new File(outputDir, "output" + fileName + ".txt");
+            int k = (int) cases.get(i)[0];
+            int[] arr = (int[]) cases.get(i)[1];
 
-            Object[][] cases = testCases.get(i);
-
-            PrintWriter inWriter = new PrintWriter(new BufferedWriter(new FileWriter(inFile)));
-            inWriter.println(cases.length);
-            for (Object[] c : cases) {
-                int k = (int) c[0];
-                int[] arr = (int[]) c[1];
-                inWriter.println(arr.length + " " + k);
-                inWriter.println(join(arr));
-            }
+            PrintWriter inWriter = new PrintWriter(new BufferedWriter(new FileWriter(new File(inputDir, "input" + fileName + ".txt"))));
+            inWriter.println(arr.length + " " + k);
+            inWriter.println(join(arr));
             inWriter.close();
 
-            PrintWriter outWriter = new PrintWriter(new BufferedWriter(new FileWriter(outFile)));
-            for (Object[] c : cases) {
-                outWriter.println(solve((int) c[0], (int[]) c[1]));
-            }
+            PrintWriter outWriter = new PrintWriter(new BufferedWriter(new FileWriter(new File(outputDir, "output" + fileName + ".txt"))));
+            outWriter.println(solve(k, arr));
             outWriter.close();
         }
         System.out.println("Testcases generated successfully!");
@@ -70,6 +57,10 @@ public class gen {
         return join(res);
     }
 
+    static void add(List<Object[]> list, int k, int[] arr) {
+        list.add(new Object[]{k, arr});
+    }
+
     static int[] randomArray(int n, Random rand) {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) arr[i] = rand.nextInt(); // full int range
@@ -82,111 +73,81 @@ public class gen {
         return arr;
     }
 
-    // TC0: sample from the problem statement
-    static Object[][] generateTC0() {
-        return new Object[][]{
-            {3, new int[]{1, 2, 3, 4, 5, 6, 7}},
-            {2, new int[]{-1, -100, 3, 99}}
-        };
+    static int[] reversed(int[] arr) {
+        int[] res = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) res[i] = arr[arr.length - 1 - i];
+        return res;
     }
 
-    // TC1: smallest sizes, k = 0, k = max, n = 1 and n = 2
-    static Object[][] generateTC1() {
-        return new Object[][]{
-            {0, new int[]{5}},
-            {1, new int[]{5}},
-            {100000, new int[]{5}},
-            {0, new int[]{1, 2}},
-            {1, new int[]{1, 2}},
-            {2, new int[]{1, 2}},
-            {3, new int[]{1, 2}},
-            {100000, new int[]{1, 2}},
-            {99999, new int[]{1, 2}},
-            {0, new int[]{1, 2, 3}},
-            {10, new int[]{1, 2}}
-        };
-    }
-
-    // TC2: k vs n boundaries: k < n, k = n - 1, k = n, k = n + 1, k = 2n, k = 2n + 1
-    static Object[][] generateTC2() {
-        int[] a = {1, 2, 3, 4, 5};
-        return new Object[][]{
-            {1, a},
-            {4, a},
-            {5, a},
-            {6, a},
-            {10, a},
-            {11, a},
-            {0, a},
-            {2, new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE, 0}},
-            {1, new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE, 0}},
-            {3, new int[]{Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE}},
-            {7, new int[]{-1, -2, -3, -4, -5, -6}}
-        };
-    }
-
-    // TC3: random small cases, random k (including k > n)
-    static Object[][] generateTC3() {
-        Random rand = new Random(42);
-        Object[][] cases = new Object[50][];
-        for (int i = 0; i < 50; i++) {
-            int n = 1 + rand.nextInt(20);
-            int k = rand.nextInt(100001);
-            cases[i] = new Object[]{k, randomArray(n, rand)};
-        }
-        return cases;
-    }
-
-    // TC4: max size single case, k = n - 1
-    static Object[][] generateTC4() {
-        Random rand = new Random(999);
-        return new Object[][]{{99999, randomArray(100000, rand)}};
-    }
-
-    // TC5: t = 1000 cases, medium n (sum of n stays well under 2*10^5)
-    static Object[][] generateTC5() {
-        Random rand = new Random(1234);
-        Object[][] cases = new Object[1000][];
-        for (int i = 0; i < 1000; i++) {
-            int n = 1 + rand.nextInt(200);
-            int k = rand.nextInt(100001);
-            cases[i] = new Object[]{k, randomArray(n, rand)};
-        }
-        return cases;
-    }
-
-    // TC6: two large cases (sum n = 199999): k % n = 0 and k % n = 1
-    static Object[][] generateTC6() {
-        Random rand = new Random(777);
-        return new Object[][]{
-            {100000, randomArray(100000, rand)},
-            {100000, randomArray(99999, rand)}
-        };
-    }
-
-    // TC7: duplicates, all same, sorted, reverse sorted, small value range
-    static Object[][] generateTC7() {
-        Random rand = new Random(2024);
+    // 100 testcases: 0-1 samples, then edge cases, patterns, random small / medium / large, last 7 at max size
+    static List<Object[]> buildCases() {
+        Random rand = new Random(2026);
         List<Object[]> list = new ArrayList<>();
 
+        // Samples from the problem statement
+        add(list, 3, new int[]{1, 2, 3, 4, 5, 6, 7});
+        add(list, 2, new int[]{-1, -100, 3, 99});
+
+        // Tiny arrays, k = 0, k = max, k larger than n
+        add(list, 0, new int[]{5});
+        add(list, 1, new int[]{5});
+        add(list, 100000, new int[]{5});
+        add(list, 0, new int[]{1, 2});
+        add(list, 1, new int[]{1, 2});
+        add(list, 2, new int[]{1, 2});
+        add(list, 3, new int[]{1, 2});
+        add(list, 100000, new int[]{1, 2});
+        add(list, 99999, new int[]{1, 2});
+        add(list, 0, new int[]{1, 2, 3});
+        add(list, 10, new int[]{1, 2});
+
+        // k around n: k < n, k = n - 1, k = n, k = n + 1, k = 2n, k = 2n + 1, k = 0
+        int[] five = {1, 2, 3, 4, 5};
+        for (int k : new int[]{0, 1, 4, 5, 6, 10, 11}) add(list, k, five);
+
+        // int limits and negatives
+        add(list, 2, new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE, 0});
+        add(list, 1, new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE, 0});
+        add(list, 3, new int[]{Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE});
+        add(list, 7, new int[]{-1, -2, -3, -4, -5, -6});
+
+        // Patterns: all same, sorted, reverse sorted
         int[] same = new int[500];
         Arrays.fill(same, 7);
-        list.add(new Object[]{123, same});
-
+        add(list, 123, same);
         int[] asc = sequence(1000);
-        list.add(new Object[]{1, asc});
-        list.add(new Object[]{999, asc});
+        add(list, 1, asc);
+        add(list, 999, asc);
+        add(list, 500, reversed(asc));
 
-        int[] desc = new int[1000];
-        for (int i = 0; i < 1000; i++) desc[i] = 1000 - i;
-        list.add(new Object[]{500, desc});
-
-        for (int i = 0; i < 90; i++) {
-            int n = 1 + rand.nextInt(1000);
-            int[] arr = new int[n];
-            for (int j = 0; j < n; j++) arr[j] = rand.nextInt(3) - 1; // -1, 0, 1
-            list.add(new Object[]{rand.nextInt(100001), arr});
+        // Random small
+        while (list.size() < 60) {
+            int n = 1 + rand.nextInt(20);
+            add(list, rand.nextInt(100001), randomArray(n, rand));
         }
-        return list.toArray(new Object[0][]);
+
+        // Random medium
+        while (list.size() < 85) {
+            int n = 100 + rand.nextInt(901);
+            add(list, rand.nextInt(100001), randomArray(n, rand));
+        }
+
+        // Random large
+        while (list.size() < 93) {
+            int n = 2000 + rand.nextInt(98001);
+            add(list, rand.nextInt(100001), randomArray(n, rand));
+        }
+
+        // Max size (n = 10^5)
+        int n = 100000;
+        add(list, 0, randomArray(n, rand));
+        add(list, 1, randomArray(n, rand));
+        add(list, 99999, randomArray(n, rand));
+        add(list, 100000, randomArray(n, rand));
+        add(list, 50000, randomArray(n, rand));
+        add(list, rand.nextInt(100001), randomArray(n, rand));
+        add(list, 50001, sequence(n));
+
+        return list;
     }
 }
